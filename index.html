@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/reset.css" />
     <link rel="stylesheet" href="src/style.css" />
+    <script src="src/vanilla-tilt.js" defer></script>
     <script src="src/app.js" defer></script>
     <title>Portfolio</title>
   </head>
@@ -13,11 +14,14 @@
     <section class="hero">
       <nav>
         <div class="logo">JB</div>
-        <ul>
+        <ul id="nav-list">
           <li><a href="#about">About Me</a></li>
-          <li>Projects</li>
-          <li>Contact</li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
+        <button id="hamburger" type="button">
+          <div></div>
+        </button>
       </nav>
       <div class="container">
         <div class="hero-text-container">
@@ -52,7 +56,7 @@
         </div>
       </div>
     </section>
-    <section id="about" class="sub-section">
+    <section id="about" class="information-section">
       <div class="information">
         <h2 class="section-heading">About Me</h2>
         <p>
@@ -71,7 +75,70 @@
         />
       </div>
     </section>
-    <section></section>
-    <footer></footer>
+    <section id="projects">
+      <h2 class="section-heading">Projects</h2>
+      <div class="projects-container">
+        <div class="project">
+          <div class="project-content">
+            <img src="http://placekitten.com/500/500" alt="Project" />
+            <h3>Project Title</h3>
+            <p class="subtext">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Excepturi corrupti, nostrum dolores nemo dolorum consequatur
+              quaerat.
+            </p>
+          </div>
+          <div class="hr"></div>
+          <a href="#">View Here</a>
+        </div>
+        <div class="project">
+          <div class="project-content">
+            <img src="http://placekitten.com/500/500" alt="Project" />
+            <h3>Project Title</h3>
+            <p class="subtext">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Excepturi corrupti, nostrum dolores nemo dolorum consequatur
+              quaerat.
+            </p>
+          </div>
+          <div class="hr"></div>
+          <a href="#">View Here</a>
+        </div>
+        <div class="project">
+          <div class="project-content">
+            <img src="http://placekitten.com/500/500" alt="Project" />
+            <h3>Project Title</h3>
+            <p class="subtext">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Excepturi corrupti, nostrum dolores nemo dolorum consequatur
+              quaerat.
+            </p>
+          </div>
+          <div class="hr"></div>
+          <a href="#">View Here</a>
+        </div>
+        <div class="project">
+          <div class="project-content">
+            <img src="http://placekitten.com/500/500" alt="Project" />
+            <h3>Project Title</h3>
+            <p class="subtext">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Excepturi corrupti, nostrum dolores nemo dolorum consequatur
+              quaerat.
+            </p>
+          </div>
+          <div class="hr"></div>
+          <a href="#">View Here</a>
+        </div>
+      </div>
+    </section>
+    <footer id="contact">
+      <div class="wrapper">
+        <h2 class="section-heading">Contact Me</h2>
+        <div class="underline">
+          <a href="mailto:john.balke@gmail.com">john.balke@gmail.com</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

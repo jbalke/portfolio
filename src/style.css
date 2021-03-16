@@ -10,6 +10,7 @@
   --text-color: rgba(0, 0, 0, 0.75);
   --heading-color: rgba(0, 0, 0, 0.85);
   --highlight-color: coral;
+  --linear-gradient: linear-gradient(to right, #f83600, #fe8c00);
 
   scroll-behavior: smooth;
 }
@@ -23,13 +24,18 @@ body {
   background-color: black;
 }
 
-h1,
+body.mobile-menu-open {
+  overflow-y: hidden;
+}
+
 h2,
 h3 {
   color: var(--heading-color);
+  text-align: center;
 }
 
 a {
+  color: inherit;
   text-decoration: none;
   user-select: none;
 }
@@ -43,16 +49,59 @@ nav {
   justify-content: space-between;
 }
 
-nav ul {
+#nav-list {
+  display: none;
+}
+
+#nav-list a:hover {
+  color: var(--highlight-color);
+}
+
+#nav-list.show li + li {
+  margin-top: 2rem;
+}
+
+#nav-list.show {
+  position: fixed;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-around;
-  list-style: none;
-  width: 400px;
-  margin: 0;
-  padding: 0;
-  font-size: 1.5rem;
-  font-weight: 300;
+  background-color: rgba(0, 0, 0, 0.95);
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  font-size: 3rem;
+}
+
+#hamburger {
+  cursor: pointer;
+  width: 54px;
+  padding: 3px 7px;
+  background-color: transparent;
+  border: 0;
+}
+
+#hamburger::before,
+#hamburger::after,
+#hamburger div {
+  content: '';
+  display: block;
+  background-color: coral;
+  height: 5px;
+  margin: 7px 0;
+  transition: all 0.2s ease-in-out;
+}
+
+#hamburger.active::before {
+  transform: translateY(12px) rotate(135deg);
+}
+#hamburger.active::after {
+  transform: translateY(-12px) rotate(-135deg);
+}
+#hamburger.active div {
+  transform: scale(0);
 }
 
 section {
@@ -62,9 +111,34 @@ section {
   border: 1px solid black;
 }
 
+p {
+  color: var(--text-color);
+}
+
+section p {
+  font-size: 1.5rem;
+  line-height: 1.3em;
+}
+
 footer {
-  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   background-color: black;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+footer h2 {
+  color: inherit;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+footer a {
+  font-size: 1.2rem;
 }
 
 .hero {
@@ -94,13 +168,14 @@ footer {
 
 .hero-text h1 {
   color: white;
-  font-size: calc(2.5rem + 3vw);
+  font-size: 2.8rem;
   font-weight: 800;
-  line-height: 0.8em;
+  line-height: 0.85em;
 }
 
 .hero-text p {
-  font-size: calc(1rem + 1vw);
+  color: white;
+  font-size: 1.3rem;
   font-weight: 300;
 }
 
@@ -108,20 +183,17 @@ footer {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: calc(0.8rem + 1vw);
+  font-size: 1rem;
   padding: 0.45em 0.75em;
   cursor: pointer;
-  background-color: var(--highlight-color);
   border-radius: 999px;
   user-select: none;
+  background-color: var(--highlight-color);
 }
 
-/* @media screen and (min-width: 800px) {
-  .btn {
-    font-size: 2rem;
-  }
-} */
-
+.btn:hover {
+  filter: brightness(0.8);
+}
 .btn:active {
   transform: scale(0.98);
 }
@@ -162,25 +234,28 @@ footer {
   height: 2rem;
 }
 
+.socials a {
+  transition: transform 250ms ease-out;
+}
+
+.socials a:hover {
+  transform: scale(1.2);
+}
+
 .socials a + a {
   margin-top: 0.75rem;
 }
 
-.sub-section {
-  padding: 20px;
+.information-section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-}
-
-.sub-section p {
-  font-size: 1.5rem;
-  line-height: 1.3em;
+  min-height: 50vh;
 }
 
 .section-heading {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -195,8 +270,169 @@ footer {
   border-radius: 50%;
 }
 
+.projects-container {
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: 500px;
+  padding: 5px 5px 25px 5px;
+  box-shadow: 2px 2px 20px rgb(185, 185, 185);
+  background-color: white;
+  text-align: center;
+
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.project h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  text-align: center;
+
+  transform: translateZ(20px);
+}
+
+.project img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.project .subtext {
+  font-size: 1rem;
+  font-weight: 400;
+  transform: translateZ(20px);
+}
+
+.project a {
+  color: var(--highlight-color);
+}
+
+.project a:hover {
+  filter: brightness(0.8);
+}
+
+.hr {
+  width: 90%;
+  height: 2px;
+  margin: 1em auto;
+  background: #232526; /* fallback for old browsers */
+}
+
+.project .hr {
+  background: -webkit-linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.project:hover {
+  transform: s;
+}
+
+.project-content {
+  flex: 1;
+}
+
+.project a {
+  align-self: center;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.underline {
+  padding: 0.5rem;
+  position: relative;
+}
+.underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 150ms ease-out;
+}
+.underline:hover::after {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 @media screen and (min-width: 800px) {
-  .sub-section {
+  h1,
+  h2,
+  h3 {
+    text-align: unset;
+  }
+
+  section,
+  footer {
+    padding: 3rem;
+  }
+
+  footer a {
+    font-size: 2rem;
+  }
+
+  #nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+
+  #nav-list.show {
+    display: none;
+  }
+
+  #hamburger {
+    display: none;
+  }
+
+  .section-heading {
+    font-size: 3rem;
+  }
+
+  .hero {
+    padding: 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 6rem;
+  }
+  .hero-text p {
+    font-size: 2.2rem;
+  }
+  .hero-text a {
+    font-size: 1.7rem;
+  }
+
+  .information-section {
     flex-direction: row;
   }
 
