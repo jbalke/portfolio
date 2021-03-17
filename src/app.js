@@ -1,6 +1,7 @@
 const logo = document.querySelector('.logo');
 const hamburger = document.getElementById('hamburger');
 const navList = document.getElementById('nav-list');
+const menuItems = navList.querySelectorAll('#nav-list li');
 
 logo.innerHTML = logo.textContent
   .split('')
@@ -10,32 +11,31 @@ logo.innerHTML = logo.textContent
   )
   .join('');
 
+menuItems.forEach((item, i) => {
+  item.style.transitionDelay = `${i * 60}ms`;
+});
+
 function toggleMobileMenu() {
   hamburger.classList.toggle('active');
   navList.classList.toggle('show');
   document.body.classList.toggle('mobile-menu-open');
-
-  const menuItems = navList.querySelectorAll('#nav-list.show li');
-
-  menuItems.forEach((item) => {
-    item.addEventListener(
-      'click',
-      (event) => {
-        toggleMobileMenu();
-      },
-      { once: true }
-    );
-  });
 }
+
+menuItems.forEach((item) => {
+  item.addEventListener('click', (event) => {
+    hamburger.classList.remove('active');
+    navList.classList.remove('show');
+    document.body.classList.remove('mobile-menu-open');
+  });
+});
 
 hamburger.addEventListener('click', (event) => {
   toggleMobileMenu();
 });
 
 VanillaTilt.init(document.querySelectorAll('.project'), {
-  max: 25,
+  max: 3,
   speed: 400,
   reverse: true,
-  max: 3,
   scale: 1.05,
 });
