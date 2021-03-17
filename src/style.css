@@ -77,8 +77,9 @@ nav {
   height: 100vh;
   width: 100vw;
   font-size: 3rem;
-  transition: transform 150ms linear, opacity 150ms linear;
+  transition: transform 150ms ease-in;
   transform: translateX(-100vw);
+  will-change: transform;
   z-index: 99;
 }
 
@@ -87,8 +88,9 @@ nav {
 }
 
 #nav-list > li {
-  transition: transform 250ms linear, opacity 250ms linear;
-  transform: translateY(1em);
+  transition: transform 250ms ease-in, opacity 250ms ease-in;
+  transform: translateY(10px);
+  will-change: transform, opacity;
   opacity: 0;
 }
 
@@ -97,11 +99,12 @@ nav {
 }
 
 #nav-list.show {
-  transition: transform 150ms linear, opacity 250ms linear;
+  transition: transform 250ms ease-out;
   transform: translateX(0);
 }
 
 #nav-list.show > li {
+  transition: transform 250ms ease-out, opacity 250ms;
   transform: translateY(0);
   opacity: 1;
 }
@@ -123,7 +126,7 @@ nav {
   background-color: coral;
   height: 5px;
   margin: 7px 0;
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.2s;
 }
 
 #hamburger.active::before {
@@ -166,8 +169,8 @@ footer {
 
 footer h2 {
   color: inherit;
-  font-size: 3rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 footer a {
@@ -269,7 +272,8 @@ footer a {
 }
 
 .socials a {
-  transition: transform 250ms ease-out;
+  will-change: transform;
+  transition: transform 250ms;
 }
 
 .socials a:hover {
@@ -381,11 +385,6 @@ footer a {
   letter-spacing: 0.2em;
 }
 
-#contact h2 {
-  font-size: 2rem;
-  margin-bottom: 0.3em;
-}
-
 .underline {
   padding: 0.5rem;
   position: relative;
@@ -448,6 +447,11 @@ footer a {
     padding: 3rem;
   }
 
+  footer h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5em;
+  }
+
   footer a {
     font-size: 2rem;
   }
@@ -459,7 +463,7 @@ footer a {
     align-items: center;
     justify-content: space-around;
     list-style: none;
-    width: 400px;
+    width: 500px;
     height: auto;
     margin: 0;
     padding: 0;
@@ -470,7 +474,6 @@ footer a {
   }
 
   #nav-list > li {
-    /* transition: all 1000ms linear; */
     transform: translateY(0);
     opacity: 1;
   }
@@ -518,13 +521,38 @@ footer a {
     height: 3rem;
   }
 
-  #contact h2 {
-    font-size: 3rem;
-    margin-bottom: 0.5em;
-  }
-
   .skills-container {
     padding: 2rem;
     gap: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+
+  #nav-list {
+    transition: none;
+  }
+  #nav-list > li {
+    transition: none;
+  }
+  #nav-list.show {
+    transition: none;
+  }
+  #nav-list.show > li {
+    transition: none;
+  }
+  #hamburger::before,
+  #hamburger::after,
+  #hamburger div {
+    transition: none;
+  }
+  .logo span {
+    transition: none;
+  }
+  .socials a {
+    transition: none;
   }
 }

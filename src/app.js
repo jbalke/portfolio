@@ -12,7 +12,7 @@ logo.innerHTML = logo.textContent
   .join('');
 
 menuItems.forEach((item, i) => {
-  item.style.transitionDelay = `${i * 60}ms`;
+  item.style.transitionDelay = `${150 + (i + 1) * 110}ms`;
 });
 
 function toggleMobileMenu() {
@@ -33,9 +33,12 @@ hamburger.addEventListener('click', (event) => {
   toggleMobileMenu();
 });
 
-VanillaTilt.init(document.querySelectorAll('.project'), {
-  max: 3,
-  speed: 400,
-  reverse: true,
-  scale: 1.05,
-});
+const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (!mediaQuery.matches) {
+  VanillaTilt.init(document.querySelectorAll('.project'), {
+    max: 3,
+    speed: 400,
+    reverse: true,
+    scale: 1.05,
+  });
+}
