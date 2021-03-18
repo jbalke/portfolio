@@ -10,20 +10,20 @@
     <script src="src/app.js" defer></script>
     <title>Portfolio</title>
   </head>
-  <body>
+  <body class="">
+    <nav class="">
+      <a href="#" class="logo">JB</a>
+      <ul id="nav-list">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="hamburger" type="button">
+        <div></div>
+      </button>
+    </nav>
     <section class="hero">
-      <nav>
-        <div class="logo">JB</div>
-        <ul id="nav-list">
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button id="hamburger" type="button">
-          <div></div>
-        </button>
-      </nav>
       <div class="container">
         <div class="hero-text-container">
           <div class="hero-text">
@@ -57,175 +57,177 @@
         </div>
       </div>
     </section>
-    <section id="about" class="information-section">
-      <div class="information">
-        <h2 class="">About Me</h2>
+    <main>
+      <section class="information-section">
+        <div class="information">
+          <h2 id="about" class="anchor">About Me</h2>
+          <p>
+            Hello! My name is John Balke. I am an aspiring Software Developer,
+            with a passion for full stack web development. Lorem ipsum dolor sit
+            amet consectetur adipisicing elit. Voluptates porro nam tempore
+            iure, non suscipit accusantium at enim eaque illo eius doloremque
+            excepturi quaerat eum magni officiis, aliquam ex est.
+          </p>
+        </div>
+        <div class="headshot-container">
+          <img
+            src="http://placekitten.com/300"
+            alt="John Balke headshot"
+            class="headshot"
+            width="300"
+            height="300"
+          />
+        </div>
+      </section>
+      <section>
+        <h2 id="projects" class="anchor">Projects</h2>
+        <div class="projects-container">
+          <div class="project">
+            <div class="project-content">
+              <img
+                src="http://placekitten.com/500/500"
+                alt="Project"
+                width="500"
+                height="500"
+              />
+              <h3>Project Title</h3>
+              <p class="subtext">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Excepturi corrupti, nostrum dolores nemo dolorum consequatur
+                quaerat.
+              </p>
+            </div>
+            <div class="hr"></div>
+            <a href="#">View Here</a>
+          </div>
+          <div class="project">
+            <div class="project-content">
+              <img
+                src="http://placekitten.com/500/500"
+                alt="Project"
+                width="500"
+                height="500"
+              />
+              <h3>Project Title</h3>
+              <p class="subtext">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Excepturi corrupti, nostrum dolores nemo dolorum consequatur
+                quaerat.
+              </p>
+            </div>
+            <div class="hr"></div>
+            <a href="#">View Here</a>
+          </div>
+          <div class="project">
+            <div class="project-content">
+              <img
+                src="http://placekitten.com/500/500"
+                alt="Project"
+                width="500"
+                height="500"
+              />
+              <h3>Project Title</h3>
+              <p class="subtext">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Excepturi corrupti, nostrum dolores nemo dolorum consequatur
+                quaerat.
+              </p>
+            </div>
+            <div class="hr"></div>
+            <a href="#">View Here</a>
+          </div>
+          <div class="project">
+            <div class="project-content">
+              <img
+                src="http://placekitten.com/500/500"
+                alt="Project"
+                width="500"
+                height="500"
+              />
+              <h3>Project Title</h3>
+              <p class="subtext">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Excepturi corrupti, nostrum dolores nemo dolorum consequatur
+                quaerat.
+              </p>
+            </div>
+            <div class="hr"></div>
+            <a href="#">View Here</a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2 id="skills" class="anchor">Skills & Tools</h2>
         <p>
-          Hello! My name is John Balke. I am an aspiring Software Developer,
-          with a passion for full stack web development. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Voluptates porro nam tempore iure,
-          non suscipit accusantium at enim eaque illo eius doloremque excepturi
-          quaerat eum magni officiis, aliquam ex est.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt
+          voluptatem quam laudantium nesciunt! Suscipit voluptatibus expedita
+          eos, veritatis quibusdam?
         </p>
-      </div>
-      <div class="headshot-container">
-        <img
-          src="http://placekitten.com/300"
-          alt="John Balke headshot"
-          class="headshot"
-          width="300"
-          height="300"
-        />
-      </div>
-    </section>
-    <section id="projects">
-      <h2 class="">Projects</h2>
-      <div class="projects-container">
-        <div class="project">
-          <div class="project-content">
-            <img
-              src="http://placekitten.com/500/500"
-              alt="Project"
-              width="500"
-              height="500"
-            />
-            <h3>Project Title</h3>
-            <p class="subtext">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Excepturi corrupti, nostrum dolores nemo dolorum consequatur
-              quaerat.
-            </p>
+        <div class="skills-container">
+          <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <ul>
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Go</li>
+              <li>Rust</li>
+            </ul>
           </div>
-          <div class="hr"></div>
-          <a href="#">View Here</a>
-        </div>
-        <div class="project">
-          <div class="project-content">
-            <img
-              src="http://placekitten.com/500/500"
-              alt="Project"
-              width="500"
-              height="500"
-            />
-            <h3>Project Title</h3>
-            <p class="subtext">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Excepturi corrupti, nostrum dolores nemo dolorum consequatur
-              quaerat.
-            </p>
+          <div class="skill-category">
+            <h3>Data</h3>
+            <ul>
+              <li>
+                SQL
+                <ul>
+                  <li>PostgreSQL</li>
+                  <li>Microsoft SQL Server</li>
+                </ul>
+              </li>
+              <li>MongoDB</li>
+              <li>GraphQL</li>
+              <li>REST APIs</li>
+            </ul>
           </div>
-          <div class="hr"></div>
-          <a href="#">View Here</a>
-        </div>
-        <div class="project">
-          <div class="project-content">
-            <img
-              src="http://placekitten.com/500/500"
-              alt="Project"
-              width="500"
-              height="500"
-            />
-            <h3>Project Title</h3>
-            <p class="subtext">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Excepturi corrupti, nostrum dolores nemo dolorum consequatur
-              quaerat.
-            </p>
+          <div class="skill-category">
+            <h3>Client Frameworks & Libraries</h3>
+            <ul>
+              <li>React</li>
+              <li>GatsbyJS</li>
+              <li>Urql</li>
+              <li>React Query</li>
+              <li>React Hook Forms</li>
+              <li>Emotion / Styled Components / TailwindCSS</li>
+              <li>Jest / Mocha</li>
+            </ul>
           </div>
-          <div class="hr"></div>
-          <a href="#">View Here</a>
-        </div>
-        <div class="project">
-          <div class="project-content">
-            <img
-              src="http://placekitten.com/500/500"
-              alt="Project"
-              width="500"
-              height="500"
-            />
-            <h3>Project Title</h3>
-            <p class="subtext">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Excepturi corrupti, nostrum dolores nemo dolorum consequatur
-              quaerat.
-            </p>
+          <div class="skill-category">
+            <h3>Backend Technologies</h3>
+            <ul>
+              <li>Node.js</li>
+              <li>ExpressJS</li>
+              <li>NextJS</li>
+              <li>Apollo Server</li>
+              <li>Redis</li>
+            </ul>
           </div>
-          <div class="hr"></div>
-          <a href="#">View Here</a>
+          <div class="skill-category">
+            <h3>Other</h3>
+            <ul>
+              <li>Node.js</li>
+              <li>ExpressJS</li>
+              <li>NextJS</li>
+              <li>Apollo Server</li>
+              <li>Redis</li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </section>
-    <section id="skills">
-      <h2>Skills & Tools</h2>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt
-        voluptatem quam laudantium nesciunt! Suscipit voluptatibus expedita eos,
-        veritatis quibusdam?
-      </p>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h3>Programming Languages</h3>
-          <ul>
-            <li>JavaScript</li>
-            <li>TypeScript</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Go</li>
-            <li>Rust</li>
-          </ul>
-        </div>
-        <div class="skill-category">
-          <h3>Data</h3>
-          <ul>
-            <li>
-              SQL
-              <ul>
-                <li>PostgreSQL</li>
-                <li>Microsoft SQL Server</li>
-              </ul>
-            </li>
-            <li>MongoDB</li>
-            <li>GraphQL</li>
-            <li>REST APIs</li>
-          </ul>
-        </div>
-        <div class="skill-category">
-          <h3>Client Frameworks & Libraries</h3>
-          <ul>
-            <li>React</li>
-            <li>GatsbyJS</li>
-            <li>Urql</li>
-            <li>React Query</li>
-            <li>React Hook Forms</li>
-            <li>Emotion / Styled Components / TailwindCSS</li>
-            <li>Jest / Mocha</li>
-          </ul>
-        </div>
-        <div class="skill-category">
-          <h3>Backend Technologies</h3>
-          <ul>
-            <li>Node.js</li>
-            <li>ExpressJS</li>
-            <li>NextJS</li>
-            <li>Apollo Server</li>
-            <li>Redis</li>
-          </ul>
-        </div>
-        <div class="skill-category">
-          <h3>Other</h3>
-          <ul>
-            <li>Node.js</li>
-            <li>ExpressJS</li>
-            <li>NextJS</li>
-            <li>Apollo Server</li>
-            <li>Redis</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <footer id="contact">
+      </section>
+    </main>
+    <footer>
       <div class="wrapper fade-in">
-        <h2 class="">Contact Me</h2>
+        <h2 id="contact" class="anchor">Contact Me</h2>
         <div class="underline">
           <a href="mailto:john.balke@gmail.com">john.balke@gmail.com</a>
         </div>

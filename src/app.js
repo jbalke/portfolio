@@ -3,14 +3,6 @@ const hamburger = document.getElementById('hamburger');
 const navList = document.getElementById('nav-list');
 const menuItems = navList.querySelectorAll('#nav-list li');
 
-logo.innerHTML = logo.textContent
-  .split('')
-  .map(
-    (character, i) =>
-      `<span style="transition-delay: ${i * 300}ms">${character}</span>`
-  )
-  .join('');
-
 menuItems.forEach((item, i) => {
   item.style.transitionDelay = `${150 + (i + 1) * 110}ms`;
 });
@@ -45,20 +37,30 @@ if (!mediaQuery.matches) {
 
 function onEnterViewPort(entries, observer) {
   entries.forEach(function (entry) {
-    console.log(entry);
     // Fade in when we enter the viewport
     if (entry.intersectionRatio !== 0) {
       entry.target.classList.add('visible');
     }
-    // Fade back out when we leave the viewport
-    else {
-      entry.target.classList.remove('visible');
-    }
   });
 }
 
-const observer = new IntersectionObserver(onEnterViewPort, {
-  threshold: [0, 1],
+const fadeInObserver = new IntersectionObserver(onEnterViewPort, {
+  threshold: [1],
 });
 const fadeIns = document.querySelectorAll('.fade-in');
-fadeIns.forEach((elm) => observer.observe(elm));
+fadeIns.forEach((elm) => fadeInObserver.observe(elm));
+
+function onMainEnter(entries, observer) {
+  const entry = entries[0];
+  if (entry.intersectionRatio >= 0.05 || entry.boundingClientRect.y < 0) {
+    document.body.classList.add('scrolled');
+  } else {
+    document.body.classList.remove('scrolled');
+  }
+}
+
+const mainObersver = new IntersectionObserver(onMainEnter, {
+  threshold: [0.05],
+});
+const mainElm = document.querySelector('main');
+mainObersver.observe(mainElm);
