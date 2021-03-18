@@ -42,3 +42,23 @@ if (!mediaQuery.matches) {
     scale: 1.05,
   });
 }
+
+function onEnterViewPort(entries, observer) {
+  entries.forEach(function (entry) {
+    console.log(entry);
+    // Fade in when we enter the viewport
+    if (entry.intersectionRatio !== 0) {
+      entry.target.classList.add('visible');
+    }
+    // Fade back out when we leave the viewport
+    else {
+      entry.target.classList.remove('visible');
+    }
+  });
+}
+
+const observer = new IntersectionObserver(onEnterViewPort, {
+  threshold: [0, 1],
+});
+const fadeIns = document.querySelectorAll('.fade-in');
+fadeIns.forEach((elm) => observer.observe(elm));

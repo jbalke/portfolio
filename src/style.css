@@ -60,6 +60,11 @@ a:visited {
   color: inherit;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -246,17 +251,30 @@ footer a {
   margin-right: 1.3rem;
   user-select: none;
   white-space: nowrap;
+  width: calc(2ch - 0.3em);
 }
 
 .logo span {
   display: inline-block;
-  transition: transform 350ms ease-in-out;
 }
+
 .logo:hover span:first-of-type {
-  transform: rotate(360deg);
+  animation: infinite-rotate 1750ms ease-in-out 0s infinite forwards;
 }
 .logo:hover span:last-of-type {
-  transform: rotate(-360deg);
+  animation: infinite-rotate 1750ms ease-in-out 250ms infinite forwards;
+}
+
+@keyframes infinite-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .socials {
@@ -435,6 +453,21 @@ footer a {
   margin-left: 1em;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  visibility: hidden;
+  will-change: transform, opacity;
+  transition: none;
+}
+.fade-in.visible {
+  transition: transform 0.6s ease-out, opacity 1s ease-out;
+  transition-delay: 500ms;
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
 @media screen and (min-width: 800px) {
   h1,
   h2,
@@ -549,10 +582,16 @@ footer a {
   #hamburger div {
     transition: none;
   }
-  .logo span {
-    transition: none;
+  .logo:hover span {
+    animation: none !important;
   }
   .socials a {
+    transition: none;
+  }
+  .fade-in.visible {
+    transition: none;
+  }
+  .underline::after {
     transition: none;
   }
 }
