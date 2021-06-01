@@ -12,6 +12,7 @@
   --heading-color: rgb(25, 25, 25);
   --highlight-color: coral;
 
+  scroll-padding-top: 70px;
   scroll-behavior: smooth;
 }
 
@@ -35,6 +36,7 @@ nav {
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: black;
   color: white;
   padding: 0.2em 0;
@@ -200,11 +202,6 @@ footer h2 {
 
 footer a {
   font-size: 1.2rem;
-}
-
-.anchor {
-  padding-top: 60px;
-  margin-top: -60px;
 }
 
 .hero {
@@ -461,15 +458,14 @@ footer a {
 }
 
 @media screen and (min-width: 800px) {
+  :root {
+    scroll-padding-top: 80px;
+  }
+
   h1,
   h2,
   h3 {
     text-align: unset;
-  }
-
-  .anchor {
-    padding-top: 70px;
-    margin-top: -70px;
   }
 
   section,
@@ -484,6 +480,10 @@ footer a {
 
   footer a {
     font-size: 2rem;
+  }
+
+  body {
+    scroll-padding-top: 20px;
   }
 
   body.scrolled nav {
