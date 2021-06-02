@@ -173,7 +173,7 @@ section {
   border: 1px solid black;
 }
 
-section h2 {
+section > h2 {
   font-size: 2rem;
   font-weight: 600;
 }
@@ -202,6 +202,10 @@ footer h2 {
 
 footer a {
   font-size: 1.2rem;
+}
+
+strong {
+  font-weight: 600;
 }
 
 .hero {
@@ -322,8 +326,8 @@ footer a {
   display: flex;
   flex-direction: column;
   width: 260px;
-  height: 500px;
-  padding: 5px 5px 25px 5px;
+  height: 520px;
+  padding: 5px 8px 25px 8px;
   box-shadow: 2px 2px 20px rgb(185, 185, 185);
   background-color: white;
   text-align: center;
@@ -352,6 +356,10 @@ footer a {
   font-size: 1rem;
   font-weight: 400;
   transform: translateZ(20px);
+}
+
+.subtext p {
+  font-size: inherit;
 }
 
 .project a {
