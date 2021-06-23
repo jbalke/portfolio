@@ -331,7 +331,6 @@ strong {
   box-shadow: 2px 2px 20px rgb(185, 185, 185);
   background-color: white;
   text-align: center;
-
   transform-style: preserve-3d;
   transform: perspective(1000px);
 }
