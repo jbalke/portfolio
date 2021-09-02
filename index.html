@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/reset.css" />
-    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
-    <script src="src/vanilla-tilt.js" defer></script>
-    <script src="src/app.js" defer></script>
+    <script src="vanilla-tilt.js" defer></script>
+    <script src="app.js" defer></script>
     <title>Portfolio</title>
   </head>
-  <body class="">
-    <nav class="">
-      <a href="#" class="logo">JB</a>
+  <body>
+    <nav class="primary-nav">
+      <a href="#" class="logo" aria-label="Home">JB</a>
       <ul id="nav-list">
         <li><a href="#about">About Me</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -75,7 +75,6 @@
             working with technology and delivering solutions.
           </p>
           <p>Currently based in Northumberland, United Kingdom.</p>
-          <p></p>
         </div>
         <div class="headshot-container">
           <img
@@ -223,6 +222,8 @@
               <li>MongoDB</li>
               <li>REST APIs</li>
               <li>GraphQL</li>
+              <li>TypeORM</li>
+              <li>TypeGraphQL</li>
               <li>Websockets / Socket.io</li>
             </ul>
           </div>
@@ -259,13 +260,11 @@
               <li>React Testing Library</li>
             </ul>
           </div>
-          <div class="skill-category">
+          <!-- <div class="skill-category">
             <h3>Other</h3>
             <ul>
-              <li>TypeORM</li>
-              <li>TypeGraphQL</li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </section>
     </main>

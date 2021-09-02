@@ -29,7 +29,7 @@ body.mobile-menu-open {
   overflow-y: hidden;
 }
 
-nav {
+.primary-nav {
   position: fixed;
   top: 0;
   width: 100%;
@@ -104,8 +104,8 @@ img {
   height: 100vh;
   width: 100vw;
   font-size: 3em;
-  transition: transform 150ms ease-in;
   transform: translateX(-100vw);
+  transition: transform 150ms ease-in;
   will-change: transform;
   z-index: 99;
 }
@@ -582,7 +582,7 @@ strong {
     scroll-behavior: auto;
   }
 
-  nav {
+  .primary-nav {
     transition: none;
   }
 

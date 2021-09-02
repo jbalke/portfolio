@@ -13,20 +13,20 @@ function toggleMobileMenu() {
   document.body.classList.toggle('mobile-menu-open');
 }
 
-menuItems.forEach((item) => {
-  item.addEventListener('click', (event) => {
+menuItems.forEach(item => {
+  item.addEventListener('click', event => {
     hamburger.classList.remove('active');
     navList.classList.remove('show');
     document.body.classList.remove('mobile-menu-open');
   });
 });
 
-hamburger.addEventListener('click', (event) => {
+hamburger.addEventListener('click', event => {
   toggleMobileMenu();
 });
 
-const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-if (!mediaQuery.matches) {
+const motionMediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (!motionMediaQuery.matches) {
   VanillaTilt.init(document.querySelectorAll('.project'), {
     max: 3,
     speed: 400,
@@ -34,6 +34,16 @@ if (!mediaQuery.matches) {
     scale: 1.05,
   });
 }
+
+const viewportWidthMediaQuery = window.matchMedia('(max-width: 800px)');
+function handleWidthChange(evt) {
+  if (!evt.matches) {
+    navList.classList.remove('show');
+    hamburger.classList.remove('active');
+    document.body.classList.remove('mobile-menu-open');
+  }
+}
+viewportWidthMediaQuery.addEventListener('change', handleWidthChange);
 
 function onEnterViewPort(entries, observer) {
   entries.forEach(function (entry) {
@@ -48,7 +58,7 @@ const fadeInObserver = new IntersectionObserver(onEnterViewPort, {
   threshold: [1],
 });
 const fadeIns = document.querySelectorAll('.fade-in');
-fadeIns.forEach((elm) => fadeInObserver.observe(elm));
+fadeIns.forEach(elm => fadeInObserver.observe(elm));
 
 function onMainEnter(entries, observer) {
   const entry = entries[0];
@@ -59,8 +69,8 @@ function onMainEnter(entries, observer) {
   }
 }
 
-const mainObersver = new IntersectionObserver(onMainEnter, {
+const mainObserver = new IntersectionObserver(onMainEnter, {
   threshold: [0.05],
 });
 const mainElm = document.querySelector('main');
-mainObersver.observe(mainElm);
+mainObserver.observe(mainElm);
