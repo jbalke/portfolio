@@ -78,6 +78,11 @@ img {
   height: auto;
 }
 
+img.thumbnail {
+  width: "500";
+  height: "500";
+}
+
 .logo {
   font-size: 3em;
   font-weight: 800;
@@ -92,10 +97,6 @@ img {
 
 .github-logo {
   height: 2rem;
-}
-
-.github-logo:hover {
-  border-bottom: 2px solid currentColor;
 }
 
 #nav-list {
@@ -378,7 +379,7 @@ strong {
 }
 
 .project a:hover {
-  filter: brightness(0.8);
+  /* border-bottom: 2px solid currentColor; */
 }
 
 .hr {
